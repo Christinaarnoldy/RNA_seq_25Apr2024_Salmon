@@ -25,9 +25,28 @@ all(file.exists(coldata$files))
 
 
 
-y <- tximeta(coldata) # reads in counts and inf reps
+y <- tximeta(coldata, skipMeta = T) # reads in counts and inf reps
 y
-assay(y)
+df <- assay(y) #counts by default, raw counts from Salmon
+df[78:100,]
+
+y
+df2 <- assays(y)$infRep1
+df2[78:100,]
+
+plotInfReps(y, idx="HPV16_W12_REF_Species_a", x="Treatment", legend = TRUE) #unscaled, raw (see y-axis label)
+
+y <- scaleInfReps(y)
+plotInfReps(y, idx="HPV16_W12_REF_Species_a", "Cells", legend = TRUE) 
+# "highly variable infRep" probably related to low abundance and close to detection limit
+plotInfReps(y, idx="HPV16_W12_REF_Species_d", "Cells", legend = TRUE) #similar range of error around the mean, just more of a scale dominator at low range
+plotInfReps(y, idx="HPV16_W12_REF_Species_d", "Cells", legend = TRUE) 
+plotInfReps(y, idx="HPV16_W12_REF_Species_e", "Cells", legend = TRUE)
+plotInfReps(y, idx="HPV16_W12_REF_Species_i", "Cells", legend = TRUE) 
+plotInfReps(y, idx="HPV16_W12_REF_Species_k", "Cells", legend = TRUE) 
+plotInfReps(y, idx="HPV16_W12_REF_Species_s", "Cells", legend = TRUE)  
+plotInfReps(y, idx="HPV16_W12_REF_Species_u", "Cells", legend = TRUE) 
+plotInfReps(y, idx="HPV16_W12_REF_Species_w", "Cells", legend = TRUE) 
 
 
 
