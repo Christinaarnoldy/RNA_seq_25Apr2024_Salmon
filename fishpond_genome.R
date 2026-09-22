@@ -1,3 +1,7 @@
+#will have to separate the row titles before I can run this 
+
+
+
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 library(readr)
@@ -11,7 +15,7 @@ library(ggplot2)
 
 #define objects for building column data table
 sampleNames=paste0("T",rep(c("2","3"),each=4),rep(c("16","Y"),each=2),rep(c("_DMSO","_GW"),each=1))
-fileNames=paste0("/Users/Christina/Documents/RNA_seq_25Apr2024_git/Salmon_quant/","T",rep(c("2","3"),each=4),rep(c("16","Y"),each=2),rep(c("_DMSO","_GW"),each=1),"_salmon/","quant.sf")
+fileNames=paste0("/Users/Christina/Documents/RNA_seq_25Apr2024_Salmon/Salmon_quant/","T",rep(c("2","3"),each=4),rep(c("16","Y"),each=2),rep(c("_DMSO","_GW"),each=1),"_salmon/","quant.sf")
 hpvstatus=paste0(rep(c("pos","neg"),each=2))
 donor=paste0(rep(c("2","3"),each=4))
 cells=paste0(rep(c("T216","T2Y","T316","T3Y"),each=2))
@@ -118,12 +122,12 @@ plotInfReps(y, idx="HPV16_W12_REF_Species_d", x="Treatment", cov="Donor", legend
 
 
 
-Redo with just HPV+ samples
+#Redo with just HPV+ samples
 
 
 #define objects for building column data table
 sampleNames_HPV=paste0("T",rep(c("2","3"),each=2),"16",rep(c("_DMSO","_GW"),each=1))
-fileNames_HPV=paste0("/Users/Christina/Documents/RNA_seq_25Apr2024_git/Salmon_quant/","T",rep(c("2","3"),each=2),"16",rep(c("_DMSO","_GW"),each=1),"_salmon/","quant.sf")
+fileNames_HPV=paste0("/Users/Christina/Documents/RNA_seq_25Apr2024_Salmon/Salmon_quant/","T",rep(c("2","3"),each=2),"16",rep(c("_DMSO","_GW"),each=1),"_salmon/","quant.sf")
 donor_HPV=paste0(rep(c("2","3"),each=2))
 cells_HPV=paste0(rep(c("T216","T316"),each=1))
 treatment_HPV=paste0(rep(c("DMSO","GW"),each=1))
